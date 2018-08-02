@@ -25,8 +25,7 @@ public class HttpInvoke implements Invoke {
         sendParam.put("methodParams", invoke.getObjs());
         sendParam.put("paramTypes", invoke.getMethod().getParameterTypes());
         
-        String url = "http://" + nodeinfo.getHost() + ":" + nodeinfo.getPort()
-                + nodeinfo.getContextpath();
+        String url = "http://" + nodeinfo.getHost() + ":" + nodeinfo.getPort() + nodeinfo.getContextpath();
         
         String result = HttpRequest.sendPost(url, sendParam.toJSONString());
         return result;
