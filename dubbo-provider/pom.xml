@@ -46,8 +46,6 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId>
-            <version>${org.springframework.version}</version> </dependency> -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
@@ -169,11 +167,16 @@
             <artifactId>netty-all</artifactId>
             <version>5.0.0.Alpha2</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>gao.soa</groupId>-->
-            <!--<artifactId>dubbo-framework</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>gao.soa</groupId>
+            <artifactId>dubbo-framework</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>gao.soa</groupId>
+            <artifactId>dubbo-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
