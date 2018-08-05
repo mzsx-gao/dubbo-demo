@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registry {
+
     private String id;
     
     private String protocol;

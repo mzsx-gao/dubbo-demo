@@ -7,11 +7,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
+/*
+  随机算法
+ */
 public class RondomLoadBalance implements LoadBalance {
     
     public NodeInfo doSelect(List<String> registryInfo) {
         Random random = new Random();
-        int nextInt = random.nextInt(registryInfo.size());
+        int nextInt = random.nextInt(registryInfo.size());//产生一个随机数，最大为服务列表的数量
         
         String registry = registryInfo.get(nextInt);
         JSONObject parseObject = JSONObject.parseObject(registry);

@@ -80,8 +80,7 @@ public class HttpRequest {
         }
         catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 if (out != null) {
                     out.close();

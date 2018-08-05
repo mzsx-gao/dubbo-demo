@@ -35,5 +35,4 @@ public class RoundRobinLoadBalance implements LoadBalance {
         ni.setContextpath(protocol.get("contextpath") != null ? protocol.getString("contextpath") : "");
         return ni;
     }
-    
 }

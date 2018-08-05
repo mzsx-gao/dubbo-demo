@@ -21,12 +21,12 @@ public class RedisRegistry implements BaseRegistry {
             RedisApi.createJedisPool(registry.getAddress());
             for (Map.Entry<String, Service> entry : services.entrySet()) {
                 //这个if就对应一个service标签的注册信息
-                /**
-                 * {host:ip : 
+                /*
+                  {host:port :
                     {protocol : http,
                     service : JSONObject.toJsonString(Service.class)}
                    }
-                 *  */
+                */
                 if (entry.getValue().getRef().equals(ref)) {
                     JSONObject jo = new JSONObject();
                     jo.put("protocol", JSONObject.toJSONString(protocol));
@@ -39,13 +39,26 @@ public class RedisRegistry implements BaseRegistry {
                 }
             }
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
-    
+
+    public List<String> getRegistry(String id, ApplicationContext application) {
+        try {
+            Registry registry = application.getBean(Registry.class);
+            RedisApi.createJedisPool(registry.getAddress());
+
+            if(RedisApi.exists(id)) {
+                return RedisApi.lrange(id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private void lpush(JSONObject hostport, String key) {
         if (RedisApi.exists(key)) {
             Set<String> keySet = hostport.keySet();
@@ -55,7 +68,7 @@ public class RedisRegistry implements BaseRegistry {
             }
             
             List<String> registryInfo = RedisApi.lrange(key);
-            List<String> newRegistry = new ArrayList<String>();
+            List<String> newRegistry = new ArrayList<>();
             
             boolean isold = false;
             
@@ -94,20 +107,5 @@ public class RedisRegistry implements BaseRegistry {
             //第一次这个服务注册
             RedisApi.lpush(key, hostport.toJSONString());
         }
-    }
-    
-    public List<String> getRegistry(String id, ApplicationContext application) {
-        try {
-            Registry registry = application.getBean(Registry.class);
-            RedisApi.createJedisPool(registry.getAddress());
-            
-            if(RedisApi.exists(id)) {
-                return RedisApi.lrange(id);
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

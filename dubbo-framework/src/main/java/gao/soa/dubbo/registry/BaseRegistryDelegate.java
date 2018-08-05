@@ -4,7 +4,10 @@ import gao.soa.dubbo.spring.configBean.Registry;
 import org.springframework.context.ApplicationContext;
 import java.util.List;
 
-
+/*
+    这个类的作用就是负责把service配置的信息注册到注册中心
+    那么这个注册中心到底是zookeeper还是redis,还是mongodb,其实就是在这个类中来实现
+ */
 public class BaseRegistryDelegate {
    public static boolean registry(String ref,ApplicationContext application) {
        

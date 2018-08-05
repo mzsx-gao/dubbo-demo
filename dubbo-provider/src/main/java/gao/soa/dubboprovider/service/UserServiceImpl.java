@@ -6,12 +6,12 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     
     public String queryUser(String userId) {
-        System.out.println("queryUser......String");
-        return "username=jack,password=jack234";
+        System.out.println("从数据库查询数据。。。。8083");
+        return "username=gsd,password=gsd234";
     }
     
     public String queryUser(Map userId) {
         System.out.println("queryUser.....Map");
-        return "username=jack,password=jack234";
+        return "username=gsd,password=gsd234";
     }
 }

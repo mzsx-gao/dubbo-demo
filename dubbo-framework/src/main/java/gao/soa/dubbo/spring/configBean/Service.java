@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 public class Service implements InitializingBean,ApplicationContextAware {
+
     private String id;
     
     private String intf;

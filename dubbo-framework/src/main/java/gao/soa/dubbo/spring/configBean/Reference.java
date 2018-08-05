@@ -42,11 +42,7 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
 
     private static Map<String, LoadBalance> loadBalances = new HashMap<>();
 
-
-    /**
-     * @Fields registryInfo 本地缓存注册中心中的服务列表信息
-     */
-
+    //本地缓存注册中心中的服务列表信息
     private List<String> registryInfo = new ArrayList<>();
 
 
@@ -170,6 +166,5 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
     public void afterPropertiesSet() throws Exception {
         registryInfo = BaseRegistryDelegate.getRegistry(id, application);
     }
-
 
 }

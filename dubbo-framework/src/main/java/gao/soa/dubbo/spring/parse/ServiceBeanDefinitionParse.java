@@ -32,8 +32,7 @@ public class ServiceBeanDefinitionParse implements BeanDefinitionParser {
         }
         else {
             //如果id没有配置，那么就是类名的首字母小写作为一个类的唯一标识
-            id = beanClass.getName().substring(0, 1).toLowerCase()
-                    + beanClass.getName().substring(1);
+            id = beanClass.getName().substring(0, 1).toLowerCase() + beanClass.getName().substring(1);
             rootBeanDefinition.getPropertyValues().add("id", id);
         }
         

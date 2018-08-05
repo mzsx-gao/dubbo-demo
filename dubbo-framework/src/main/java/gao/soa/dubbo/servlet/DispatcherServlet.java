@@ -27,9 +27,9 @@ public class DispatcherServlet extends HttpServlet {
      * 这里就会接受到消费端的请求
      */
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        JSONObject httpProcess = httpProcess(req, resp);
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        JSONObject httpProcess = httpProcess(req);//转换请求参数未JSON格式
         String serviceId = httpProcess.getString("serviceId");
         String methodName = httpProcess.getString("methodName");
         JSONArray paramTypes = httpProcess.getJSONArray("paramTypes");
@@ -60,22 +60,16 @@ public class DispatcherServlet extends HttpServlet {
                 PrintWriter pw = resp.getWriter();
                 pw.write("==============no such method====================" + methodName);
             }
-        }
-        catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-        catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
+
     }
     
-    private Method getMethod(Object bean, String methodName,
-            JSONArray paramTypes) {
+    private Method getMethod(Object bean, String methodName, JSONArray paramTypes) {
+
         Method[] methods = bean.getClass().getMethods();
-        List<Method> retMethod = new ArrayList<Method>();
+        List<Method> retMethod = new ArrayList<>();
         
         for (Method method : methods) {
             if (methodName.equals(method.getName())) {
@@ -89,7 +83,7 @@ public class DispatcherServlet extends HttpServlet {
         
         boolean isSameSize = false;
         boolean isSameType = false;
-        jack: for (Method method : retMethod) {
+        gsd: for (Method method : retMethod) {
             Class<?>[] types = method.getParameterTypes();
             
             if (types.length == paramTypes.size()) {
@@ -102,13 +96,12 @@ public class DispatcherServlet extends HttpServlet {
             for (int i = 0; i < types.length; i++) {
                 if (types[i].toString().contains(paramTypes.getString(i))) {
                     isSameType = true;
-                }
-                else {
+                } else {
                     isSameType = false;
                 }
                 
                 if (!isSameType) {
-                    continue jack;
+                    continue gsd;
                 }
             }
             
@@ -120,25 +113,22 @@ public class DispatcherServlet extends HttpServlet {
         return null;
     }
     
-    private JSONObject httpProcess(HttpServletRequest req, HttpServletResponse resp) {
+    private JSONObject httpProcess(HttpServletRequest req) {
         StringBuffer sb = new StringBuffer();
         try {
             ServletInputStream in = req.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(in,
-                    "utf-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(in, "utf-8"));
             String s = "";
             while ((s = br.readLine()) != null) {
                 sb.append(s);
             }
-            
+
             if (sb.toString().length() <= 0) {
                 return null;
-            }
-            else {
+            } else {
                 return JSONObject.parseObject(sb.toString());
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
