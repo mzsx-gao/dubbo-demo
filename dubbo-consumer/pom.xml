@@ -8,11 +8,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <packaging>war</packaging>
     <artifactId>dubbo-consumer</artifactId>
 
     <properties>
-        <spring.version>3.2.8.RELEASE</spring.version>
+        <spring.version>4.3.8.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -171,5 +171,18 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>dubbo-consumer</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>9.4.11.v20180605</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

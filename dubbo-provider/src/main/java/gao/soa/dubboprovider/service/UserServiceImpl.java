@@ -10,8 +10,8 @@ public class UserServiceImpl implements UserService {
         return "username=gsd,password=gsd234";
     }
     
-    public String queryUser(Map userId) {
-        System.out.println("queryUser.....Map");
-        return "username=gsd,password=gsd234";
-    }
+//    public String queryUser(Map userId) {
+//        System.out.println("queryUser.....Map");
+//        return "username=gsd,password=gsd234";
+//    }
 }

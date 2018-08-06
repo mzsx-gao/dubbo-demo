@@ -4,6 +4,16 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="WebApp_ID" version="2.5">
 
+    <!--<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-mvc.xml</param-value>
+    </context-param>-->
+
+    <!--<listener>
+            <description>spring监听器</description>
+            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        </listener>-->
+
     <!-- 配置 DispatcherServlet -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
@@ -18,16 +28,6 @@
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>zgjacksoaservlet</servlet-name>
-        <servlet-class>gao.soa.dubbo.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>zgjacksoaservlet</servlet-name>
-        <url-pattern>/soa/api</url-pattern>
     </servlet-mapping>
 
 </web-app>

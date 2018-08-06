@@ -3,8 +3,8 @@ package gao.soa.dubbo.spring.parse;
 import gao.soa.dubbo.spring.configBean.Protocol;
 import gao.soa.dubbo.spring.configBean.Reference;
 import gao.soa.dubbo.spring.configBean.Registry;
+import gao.soa.dubbo.spring.configBean.Service;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
-import org.springframework.stereotype.Service;
 
 
 public class SOANamespaceHandler extends NamespaceHandlerSupport {
