@@ -95,7 +95,6 @@ public class RedisApi {
     public static Long lpush(String key, String... strings) {
         Jedis jedis = null;
         try {
-            pool=getPool();
             jedis = pool.getResource();
             return jedis.lpush(key, strings);
         } catch (Exception e) {
@@ -122,7 +121,7 @@ public class RedisApi {
 
     public static JedisPool getPool() {
 
-        if (pool.isClosed()) {
+        if (pool == null) {
             JedisPoolConfig config = new JedisPoolConfig();
             config.setMaxTotal(Integer.valueOf(prop.getProperty("MAX_TOTAL")));
             config.setMaxIdle(Integer.valueOf(prop.getProperty("MAX_IDLE")));
@@ -139,7 +138,6 @@ public class RedisApi {
     public static void returnResource(JedisPool pool, Jedis redis) {
         if (redis != null) {
             redis.close();
-            pool.close();
         }
     }
 }
