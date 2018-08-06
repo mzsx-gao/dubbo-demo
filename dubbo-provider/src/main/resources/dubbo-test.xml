@@ -13,9 +13,10 @@
 
     <jack:service interface="gao.soa.dubbointerface.UserService" ref="userServiceImpl"/>
 
-	<jack:registry id="registry22" protocol="redis" address="172.16.36.15:6379"/>
+	<!--<jack:registry id="registry22" protocol="redis" address="172.16.36.15:6379"/>-->
+	<jack:registry id="registry22" protocol="redis" address="192.168.0.104:6379"/>
 
-	<jack:protocol id="protocol22" name="http" port="8083" host="127.0.0.1"
-                   contextpath="/zg-dubbo-provider/soa/api"></jack:protocol>
+	<jack:protocol id="protocol22" name="http" port="8082" host="127.0.0.1"
+                   contextpath="/soa/api"></jack:protocol>
 
 </beans>  

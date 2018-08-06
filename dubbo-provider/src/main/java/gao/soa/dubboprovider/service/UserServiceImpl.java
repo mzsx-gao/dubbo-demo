@@ -6,7 +6,7 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     
     public String queryUser(String userId) {
-        System.out.println("从数据库查询数据。。。。8083");
+        System.out.println("从数据库查询数据。。。。8082");
         return "username=gsd,password=gsd234";
     }
     

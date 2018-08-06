@@ -11,6 +11,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/*
+ 注册到redis的key为service的ref
+ value为list类型:
+  {host:port :
+    {protocol : http,
+     service : JSONObject.toJsonString(Service.class)}
+   }
+
+ 示例:
+ "{"127.0.0.1:8082":{"protocol":"{\"contextpath\":\"/soa/api\",\"host\":\"127.0.0.1\",\"id\":\"protocol22\",\"name\":\"http\",\"port\":\"8082\"}","service":"{\"id\":\"gao.soa.dubbo.spring.configBean.Service\",\"intf\":\"gao.soa.dubbointerface.UserService\",\"ref\":\"userServiceImpl\"}"}}"
+ 格式化后如下所示:
+ {
+	"127.0.0.1:8082": {
+		"protocol": "{\"contextpath\":\"/soa/api\",\"host\":\"127.0.0.1\",\"id\":\"protocol22\",\"name\":\"http\",\"port\":\"8082\"}",
+		"service": "{\"id\":\"gao.soa.dubbo.spring.configBean.Service\",\"intf\":\"gao.soa.dubbointerface.UserService\",\"ref\":\"userServiceImpl\"}"
+	}
+  }
+ */
 public class RedisRegistry implements BaseRegistry {
     
     public boolean registry(String ref, ApplicationContext application) {
@@ -94,6 +112,7 @@ public class RedisRegistry implements BaseRegistry {
                     for (int i = 0; i < newRegistry.size(); i++) {
                         newRegistryStr[i] = newRegistry.get(i);
                     }
+
                     RedisApi.lpush(key, newRegistryStr);
                 }
             }

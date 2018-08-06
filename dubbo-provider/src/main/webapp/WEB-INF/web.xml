@@ -21,12 +21,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>zgjacksoaservlet</servlet-name>
+        <servlet-name>gsdSoaServlet</servlet-name>
         <servlet-class>gao.soa.dubbo.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>zgjacksoaservlet</servlet-name>
+        <servlet-name>gsdSoaServlet</servlet-name>
         <url-pattern>/soa/api</url-pattern>
     </servlet-mapping>
 
