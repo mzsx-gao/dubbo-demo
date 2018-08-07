@@ -15,6 +15,7 @@
 	<gsd:registry id="registry2348u" protocol="redis" address="192.168.0.104:6379"/>
 
 	<!--<gsd:protocol id="protocol1" name="http" port="8082" host="127.0.0.1" contextpath="/soa/api"/>-->
-    <gsd:protocol id="protocol2" name="netty" port="8084"/>
+    <!--<gsd:protocol id="protocol2" name="netty" port="8084" host="127.0.0.1"/>-->
+	<gsd:protocol id="protocol3" name="rmi" port="1105" host="127.0.0.1"></gsd:protocol>
 
 </beans>  

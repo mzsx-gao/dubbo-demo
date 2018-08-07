@@ -1,6 +1,7 @@
 package gao.soa.dubbo.spring.configBean;
 
 import gao.soa.dubbo.netty.NettyUtil;
+import gao.soa.dubbo.rmi.RmiServerStart;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -75,7 +76,10 @@ public class Protocol implements ApplicationListener<ContextRefreshedEvent>,Init
     }
 
     public void afterPropertiesSet() throws Exception {
-
+        if("rmi".equalsIgnoreCase(name)) {
+            RmiServerStart rmiServerStart = new RmiServerStart();
+            rmiServerStart.startRmiServer(host, port, "gsdsoa");
+        }
     }
 
 }
