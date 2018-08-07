@@ -17,22 +17,17 @@ public class NettyInvoke implements Invoke {
 
         //在这里需要选择某一个服务去调用,那么在这里如何选择呢？就是一个负载均衡算法
         //轮询、随机、最小活跃数、权重
-        LoadBalance loadbalanceClass = reference.getLoadBalances()
-                .get(loadbalance);
-        NodeInfo nodeinfo = loadbalanceClass.doSelect(registryInfo);
+        LoadBalance loadbalanceClass = reference.getLoadBalances().get(loadbalance);
+        NodeInfo nodeInfo = loadbalanceClass.doSelect(registryInfo);
 
         JSONObject sendParam = new JSONObject();
         sendParam.put("methodName", invoke.getMethod().getName());
         sendParam.put("serviceId", reference.getId());
         sendParam.put("methodParams", invoke.getObjs());
         sendParam.put("paramTypes", invoke.getMethod().getParameterTypes());
-
         try {
-            return NettyUtil.sendMsg(nodeinfo.getHost(),
-                    nodeinfo.getPort(),
-                    sendParam.toJSONString());
-        }
-        catch (Exception e) {
+            return NettyUtil.sendMsg(nodeInfo.getHost(), nodeInfo.getPort(), sendParam.toJSONString());
+        } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }

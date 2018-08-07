@@ -1,17 +1,12 @@
 package gao.soa.dubbo.netty;
 
-import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-
 import gao.soa.dubbo.spring.configBean.Service;
 import org.springframework.context.ApplicationContext;
-
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -20,31 +15,26 @@ public class NettyServerInHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public boolean isSharable() {
-        // TODO Auto-generated method stub
         return super.isSharable();
     }
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
         super.channelRegistered(ctx);
     }
 
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
         super.channelUnregistered(ctx);
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
         super.channelActive(ctx);
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
         super.channelInactive(ctx);
     }
 
@@ -54,7 +44,7 @@ public class NettyServerInHandler extends ChannelInboundHandlerAdapter {
         byte[] result1 = new byte[result.readableBytes()];
         result.readBytes(result1);
         String resultStr = new String(result1);
-        System.out.println("Client said : " + resultStr);
+        System.out.println("客户端发送的数据 : " + resultStr);
         result.release();
         String response = invokeService(resultStr);
         
@@ -94,24 +84,13 @@ public class NettyServerInHandler extends ChannelInboundHandlerAdapter {
             }  else {
                 return "no such method";
             }
-        }
-        catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        catch (InvocationTargetException e) {
-            // TODO Auto-generated catch block
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
     
-    private Method getMethod(Object bean, String methodName,
-            JSONArray paramTypes) {
+    private Method getMethod(Object bean, String methodName, JSONArray paramTypes) {
         Method[] methods = bean.getClass().getMethods();
         List<Method> retMethod = new ArrayList<Method>();
         
@@ -160,7 +139,6 @@ public class NettyServerInHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
         super.channelReadComplete(ctx);
     }
 }

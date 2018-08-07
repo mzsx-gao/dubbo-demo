@@ -65,14 +65,11 @@ public class Protocol implements ApplicationListener<ContextRefreshedEvent>,Init
         if(!"netty".equalsIgnoreCase(name)) {
             return;
         }
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    NettyUtil.startServer(port);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
+        new Thread(()->{
+            try {
+                NettyUtil.startServer(port);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
     }

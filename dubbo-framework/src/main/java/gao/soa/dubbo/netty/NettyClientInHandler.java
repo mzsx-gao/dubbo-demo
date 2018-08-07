@@ -17,23 +17,22 @@ public class NettyClientInHandler extends ChannelInboundHandlerAdapter {
     
     @Override
     public boolean isSharable() {
-        // TODO Auto-generated method stub
         return super.isSharable();
     }
     
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("==============channel--register================");
+        System.out.println("channel--register================");
     }
     
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("==============channel--unregister================");
+        System.out.println("channel--unregister================");
     }
     
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("==============channel--Active================");
+        System.out.println("channel--Active================");
         
         ByteBuf buffer = ctx.alloc().buffer(4 * sendmsg.length());
         buffer.writeBytes(sendmsg.getBytes());
@@ -44,24 +43,23 @@ public class NettyClientInHandler extends ChannelInboundHandlerAdapter {
     
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("==============channel--Inactive================");
+        System.out.println("channel--Inactive================");
     }
     
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
-        System.out.println("==============channel--channelRead================");
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("channel--channelRead================");
         ByteBuf result = (ByteBuf)msg;
         byte[] result1 = new byte[result.readableBytes()];
         result.readBytes(result1);
-        System.out.println("server retuan : " + new String(result1));
+        System.out.println("服务端返回的数据 : " + new String(result1));
         message.append(new String(result1));
         result.release();
     }
     
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
+        System.out.println("channel--channelReadComplete================");
         super.channelReadComplete(ctx);
     }
 }
