@@ -30,5 +30,4 @@ public class InvokeInvocationHandler implements InvocationHandler {
         invocation.setReference(reference);
         return invoke.invoke(invocation);
     }
-    
 }

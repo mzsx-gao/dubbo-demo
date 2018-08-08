@@ -15,8 +15,7 @@ public class TestController implements ApplicationContextAware {
     
     ApplicationContext application;
     
-    public void setApplicationContext(ApplicationContext applicationContext)
-            throws BeansException {
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.application = applicationContext;
     }
     
@@ -26,6 +25,7 @@ public class TestController implements ApplicationContextAware {
     @RequestMapping("/queryUser")
     public @ResponseBody
     String queryUser() {
+//        UserService userService = (UserService) this.application.getBean(UserService.class);
         return userServiceImpl.queryUser("123");
     }
     

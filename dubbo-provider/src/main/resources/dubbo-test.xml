@@ -13,11 +13,11 @@
 
     <gsd:service interface="gao.soa.dubbointerface.UserService" ref="userServiceImpl"/>
 
-	<!--<gsd:registry id="registry22" protocol="redis" address="172.16.36.15:6379"/>-->
-	<gsd:registry id="registry22" protocol="redis" address="192.168.0.104:6379"/>
+	<gsd:registry id="registry22" protocol="redis" address="172.16.36.15:6379"/>
+	<!--<gsd:registry id="registry22" protocol="redis" address="192.168.0.104:6379"/>-->
 
 	<!--<gsd:protocol id="protocol1" name="http" port="8082" host="127.0.0.1" contextpath="/soa/api"/>-->
 	<!--<gsd:protocol id="protocol2" name="netty" port="8083" host="127.0.0.1"/>-->
-	<gsd:protocol id="protocol3" name="rmi" port="1106" host="127.0.0.1"></gsd:protocol>
+	<gsd:protocol id="protocol3" name="rmi" port="1106" host="127.0.0.1"/>
 
 </beans>  

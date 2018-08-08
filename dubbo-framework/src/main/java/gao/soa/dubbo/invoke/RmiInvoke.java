@@ -17,8 +17,7 @@ public class RmiInvoke implements Invoke {
 
         //在这里需要选择某一个服务去调用,那么在这里如何选择呢？就是一个负载均衡算法
         //轮询、随机、最小活跃数、权重
-        LoadBalance loadbalanceClass = reference.getLoadBalances()
-                .get(loadbalance);
+        LoadBalance loadbalanceClass = reference.getLoadBalances().get(loadbalance);
         NodeInfo nodeinfo = loadbalanceClass.doSelect(registryInfo);
 
         JSONObject sendParam = new JSONObject();
@@ -31,8 +30,7 @@ public class RmiInvoke implements Invoke {
         SoaRmi soarmi = rmiServerStart.startRmiClient(nodeinfo, "gsdsoa");
         try {
             return soarmi.invoke(sendParam.toJSONString());
-        }
-        catch (RemoteException e) {
+        } catch (RemoteException e) {
             e.printStackTrace();
             throw e;
         }

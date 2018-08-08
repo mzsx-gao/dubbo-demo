@@ -98,8 +98,7 @@ public class RedisRegistry implements BaseRegistry {
                 if (jo.containsKey(hostportkey)) {
                     newRegistry.add(hostport.toJSONString());
                     isold = true;
-                }
-                else {
+                } else {
                     //如果没有，那就说明之前这个service标签没有注册过，这时候可能是一个新的生产者启动
                     newRegistry.add(node);
                 }
@@ -115,14 +114,12 @@ public class RedisRegistry implements BaseRegistry {
 
                     RedisApi.lpush(key, newRegistryStr);
                 }
-            }
-            else {
-                //如果没有配置信息修改，就把心的hostport对象加入到list中
+            } else {
+                //如果没有配置信息修改，就把新的hostport对象加入到list中
                 //list.add()
                 RedisApi.lpush(key, hostport.toJSONString());
             }
-        }
-        else {
+        } else {
             //第一次这个服务注册
             RedisApi.lpush(key, hostport.toJSONString());
         }

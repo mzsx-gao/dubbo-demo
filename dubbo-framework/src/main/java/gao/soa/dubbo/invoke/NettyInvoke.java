@@ -32,5 +32,4 @@ public class NettyInvoke implements Invoke {
             throw e;
         }
     }
-    
 }
