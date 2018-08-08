@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import gao.soa.dubbo.spring.configBean.Service;
 import org.springframework.context.ApplicationContext;
-
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
