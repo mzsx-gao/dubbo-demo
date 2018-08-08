@@ -14,6 +14,8 @@ public class Invocation {
     
     private Reference reference;
 
+    private Invoke invoke;
+
     public Method getMethod() {
         return method;
     }
@@ -45,6 +47,12 @@ public class Invocation {
     public void setReference(Reference reference) {
         this.reference = reference;
     }
-    
-    
+
+    public Invoke getInvoke() {
+        return invoke;
+    }
+
+    public void setInvoke(Invoke invoke) {
+        this.invoke = invoke;
+    }
 }

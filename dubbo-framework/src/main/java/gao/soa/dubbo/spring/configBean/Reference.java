@@ -1,6 +1,10 @@
 package gao.soa.dubbo.spring.configBean;
 
 import gao.soa.dubbo.advice.InvokeInvocationHandler;
+import gao.soa.dubbo.cluster.Cluster;
+import gao.soa.dubbo.cluster.FailfastCluster;
+import gao.soa.dubbo.cluster.FailoverCluster;
+import gao.soa.dubbo.cluster.FailsafeCluster;
 import gao.soa.dubbo.invoke.HttpInvoke;
 import gao.soa.dubbo.invoke.Invoke;
 import gao.soa.dubbo.invoke.NettyInvoke;
@@ -34,6 +38,10 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
 
     private String loadbalance;
 
+    private String cluster;
+
+    private String retries;
+
     private Invoke invoke;
 
     private ApplicationContext application;
@@ -41,6 +49,8 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
     private static Map<String, Invoke> invokeMaps = new HashMap<>();
 
     private static Map<String, LoadBalance> loadBalances = new HashMap<>();
+
+    private static Map<String,Cluster> servers = new HashMap<String,Cluster>();
 
     //本地缓存注册中心中的服务列表信息
     private List<String> registryInfo = new ArrayList<>();
@@ -54,6 +64,10 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
 
         loadBalances.put("random", new RondomLoadBalance());
         loadBalances.put("roundrob", new RoundRobinLoadBalance());
+
+        servers.put("failover", new FailoverCluster());
+        servers.put("failfast", new FailfastCluster());
+        servers.put("failsafe", new FailsafeCluster());
     }
 
     public String getId() {
@@ -111,12 +125,31 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
         this.loadbalance = loadbalance;
     }
 
+    public String getCluster() {
+        return cluster;
+    }
 
+    public void setCluster(String cluster) {
+        this.cluster = cluster;
+    }
 
-    /*
-     * 返回一个对象，然后被spring容器管理
-     * 这个方法要返回 intf这个接口的代理实例
-     */
+    public String getRetries() {
+        return retries;
+    }
+
+    public void setRetries(String retries) {
+        this.retries = retries;
+    }
+
+    public static Map<String, Cluster> getServers() {
+        return servers;
+    }
+
+    public static void setServers(Map<String, Cluster> servers) {
+        Reference.servers = servers;
+    }
+
+    //返回一个对象，然后被spring容器管理;这个方法要返回 intf这个接口的代理实例
     public Object getObject() throws Exception {
 
         if (protocol != null && !"".equals(protocol)) {
@@ -137,9 +170,7 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
         return proxy;
     }
 
-    /*
-     * 返回实例的类型
-     */
+    //返回实例的类型
     public Class getObjectType() {
         try {
             if (intf != null && !"".equals(intf)) {
@@ -151,9 +182,7 @@ public class Reference implements FactoryBean, ApplicationContextAware, Initiali
         return null;
     }
 
-    /*
-     * 是否单例
-     */
+    //是否单例
     public boolean isSingleton() {
         return true;
     }

@@ -1,5 +1,6 @@
 package gao.soa.dubbo.advice;
 
+import gao.soa.dubbo.cluster.Cluster;
 import gao.soa.dubbo.invoke.Invocation;
 import gao.soa.dubbo.invoke.Invoke;
 import gao.soa.dubbo.spring.configBean.Reference;
@@ -28,6 +29,9 @@ public class InvokeInvocationHandler implements InvocationHandler {
         invocation.setMethod(method);
         invocation.setObjs(args);
         invocation.setReference(reference);
-        return invoke.invoke(invocation);
+        invocation.setInvoke(invoke);
+
+        Cluster cluster = reference.getServers().get(reference.getCluster());
+        return cluster.invoke(invocation);
     }
 }
