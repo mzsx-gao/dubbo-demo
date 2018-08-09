@@ -1,6 +1,6 @@
 package gao.soa.dubbo.netty;
 
-import gao.soa.dubbo.util.InvokeUtil;
+import gao.soa.dubbo.util.ReflectInvokeUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -40,7 +40,7 @@ public class NettyServerInHandler extends ChannelInboundHandlerAdapter {
         String resultStr = new String(result1);
         System.out.println("客户端发送的数据 : " + resultStr);
         result.release();
-        String response = InvokeUtil.invokeService(resultStr);
+        String response = ReflectInvokeUtil.invokeService(resultStr);
         
         //这个就是返回值的响应过程
         ByteBuf encode = ctx.alloc().buffer(4 * response.length());

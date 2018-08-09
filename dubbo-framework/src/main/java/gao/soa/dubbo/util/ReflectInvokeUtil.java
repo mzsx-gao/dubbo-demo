@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-
+  通过反射调用指定的方法
  */
-public class InvokeUtil {
+public class ReflectInvokeUtil {
 
     public static String invokeService(String param){
         JSONObject httpProcess = JSONObject.parseObject(param);
@@ -47,6 +47,7 @@ public class InvokeUtil {
         }
         return null;
     }
+
     private static Method getMethod(Object bean, String methodName, JSONArray paramTypes) {
         Method[] methods = bean.getClass().getMethods();
         List<Method> retMethod = new ArrayList<>();
@@ -72,7 +73,6 @@ public class InvokeUtil {
             if (!isSameSize) {
                 continue;
             }
-
             for (int i = 0; i < types.length; i++) {
                 if (types[i].toString().contains(paramTypes.getString(i))) {
                     isSameType = true;
@@ -90,7 +90,6 @@ public class InvokeUtil {
                 return method;
             }
         }
-
         return null;
     }
 }

@@ -9,7 +9,7 @@
        default-lazy-init="true">
 
 	<gsd:reference id="userServiceImpl"  interface="gao.soa.dubbointerface.UserService"
-                    check="false" loadbalance="random"/>
+                    check="false" loadbalance="random" cluster="failover" retries="3"/>
 
 	<gsd:registry id="registry2348u" protocol="redis" address="172.16.36.15:6379"/>
 	<!--<gsd:registry id="registry2348u" protocol="redis" address="192.168.0.104:6379"/>-->

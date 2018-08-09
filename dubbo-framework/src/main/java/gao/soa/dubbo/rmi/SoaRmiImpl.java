@@ -2,7 +2,8 @@ package gao.soa.dubbo.rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import gao.soa.dubbo.util.InvokeUtil;
+
+import gao.soa.dubbo.util.ReflectInvokeUtil;
 
 /**
  * 服务端的rmi
@@ -14,6 +15,6 @@ public class SoaRmiImpl extends UnicastRemoteObject implements SoaRmi {
     }
     
     public String invoke(String param) throws RemoteException {
-        return InvokeUtil.invokeService(param);
+        return ReflectInvokeUtil.invokeService(param);
     }
 }
