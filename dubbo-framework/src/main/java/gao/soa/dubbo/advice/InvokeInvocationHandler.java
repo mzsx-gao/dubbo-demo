@@ -19,9 +19,9 @@ public class InvokeInvocationHandler implements InvocationHandler {
         this.reference = reference;
     }
 
-    public Object invoke(Object proxy, Method method, Object[] args)
-            throws Throwable {
-        System.out.println("============invoke到了InvokeInvocationHandler=============");
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+        System.out.println("invoke到了InvokeInvocationHandler.......");
         
         //在这个invoke里面做一个远程的rpc调用。
         Invocation invocation = new Invocation();

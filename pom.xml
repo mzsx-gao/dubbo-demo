@@ -10,7 +10,9 @@
     <modules>
         <module>dubbo-framework</module>
         <module>dubbo-consumer</module>
+        <module>dubbo-consumer2</module>
         <module>dubbo-provider</module>
+        <module>dubbo-provider2</module>
         <module>dubbo-interface</module>
     </modules>
     <packaging>pom</packaging>
