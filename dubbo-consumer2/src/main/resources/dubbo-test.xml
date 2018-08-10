@@ -12,6 +12,9 @@
 
     <dubbo:registry address="multicast://224.5.6.7:1234" />
 
+    <!-- 泛化调用,服务消费者不需要有服务端的接口，就能完成服务的调用 -->
+    <dubbo:reference id="areaManager" interface="gao.soa.dubbointerface.AreaManager" generic="true"/>
+
     <!--1.通过配置文件方式 -->
     <!--<dubbo:reference id="userServiceImpl"  interface="gao.soa.dubbointerface.UserService"/>-->
     <!--2.通过注解方式 -->
