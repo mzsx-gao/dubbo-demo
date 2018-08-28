@@ -12,8 +12,8 @@
     <!-- 消费者的公共配置   是一个全局配置标签，-->
     <dubbo:consumer check="false" />
 
-    <dubbo:registry address="multicast://224.5.6.7:1234" />
-    <!--<dubbo:registry address="zookeeper:localhost:2181" />-->
+    <!--<dubbo:registry address="multicast://224.5.6.7:1234" />-->
+    <dubbo:registry address="zookeeper://localhost:2181" />
 
     <!-- 泛化调用,服务消费者不需要有服务端的接口，就能完成服务的调用 -->
     <dubbo:reference id="userServiceImpl" interface="gao.soa.dubbointerface.UserService"/>
