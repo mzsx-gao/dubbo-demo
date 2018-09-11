@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-//@Controller
+@Controller
 @RequestMapping("/dubbotest")
 public class DubboController implements ApplicationContextAware {
 

@@ -7,8 +7,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-    <!--<import resource="dubbo-test.xml"/>-->
-    <import resource="dubbo-test2.xml"/>
+    <import resource="dubbo-test.xml"/>
+    <!--<import resource="dubbo-test2.xml"/>-->
 
 	<!-- 配置自定扫描的包 -->
 	<context:component-scan base-package="gao.soa.dubboconsumer"></context:component-scan>
