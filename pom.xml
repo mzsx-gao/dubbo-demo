@@ -8,12 +8,13 @@
     <artifactId>dubbo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>dubbo-framework</module>
-        <module>dubbo-consumer</module>
-        <module>dubbo-consumer2</module>
-        <module>dubbo-provider</module>
-        <module>dubbo-provider2</module>
         <module>dubbo-interface</module>
+        <module>dubbo-framework</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
+        <!--<module>demo-xml-consumer</module>-->
+        <!--<module>demo-xml-provider</module>-->
+        <module>demo-xml</module>
     </modules>
     <packaging>pom</packaging>
 
