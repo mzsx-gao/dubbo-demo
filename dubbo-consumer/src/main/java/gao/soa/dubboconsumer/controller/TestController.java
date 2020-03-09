@@ -23,8 +23,8 @@ public class TestController implements ApplicationContextAware {
     private UserService userServiceImpl;
     
     @RequestMapping("/queryUser")
-    public @ResponseBody
-    String queryUser() {
+    @ResponseBody
+    public String queryUser() {
 //        UserService userService = (UserService) this.application.getBean(UserService.class);
         return userServiceImpl.queryUser("123");
     }

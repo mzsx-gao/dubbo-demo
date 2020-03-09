@@ -79,7 +79,7 @@
     </dependencies>
 
     <build>
-        <finalName>dubbo-provider2</finalName>
+        <finalName>demo-xml-provider</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -95,5 +95,6 @@
             </plugins>
         </pluginManagement>
     </build>
+
 
 </project>
