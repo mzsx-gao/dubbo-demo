@@ -14,6 +14,7 @@
         <module>dubbo-provider</module>
         <module>dubbo-provider2</module>
         <module>dubbo-interface</module>
+        <module>demo-xml</module>
     </modules>
     <packaging>pom</packaging>
 
