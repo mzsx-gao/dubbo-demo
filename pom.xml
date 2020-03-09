@@ -12,8 +12,6 @@
         <module>dubbo-framework</module>
         <module>dubbo-provider</module>
         <module>dubbo-consumer</module>
-        <!--<module>demo-xml-consumer</module>-->
-        <!--<module>demo-xml-provider</module>-->
         <module>demo-xml</module>
     </modules>
     <packaging>pom</packaging>
