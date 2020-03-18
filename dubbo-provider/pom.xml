@@ -57,20 +57,18 @@
 
     <build>
         <finalName>dubbo-provider</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.eclipse.jetty</groupId>
-                    <artifactId>jetty-maven-plugin</artifactId>
-                    <version>9.4.11.v20180605</version>
-                    <configuration>
-                        <httpConnector>
-                            <port>8082</port>
-                        </httpConnector>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.11.v20180605</version>
+                <configuration>
+                    <httpConnector>
+                        <port>8082</port>
+                    </httpConnector>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>gao.soa</groupId>
-    <artifactId>dubbo</artifactId>
+    <artifactId>dubbo-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>dubbo-framework</module>
@@ -13,6 +13,7 @@
         <module>dubbo-provider</module>
         <module>dubbo-interface</module>
         <module>demo-xml</module>
+        <module>demo-springboot</module>
     </modules>
     <packaging>pom</packaging>
 
