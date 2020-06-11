@@ -8,10 +8,10 @@
     <artifactId>dubbo-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>dubbo-framework</module>
-        <module>dubbo-consumer</module>
-        <module>dubbo-provider</module>
-        <module>dubbo-interface</module>
+        <module>dubbo-custom/dubbo-framework</module>
+        <module>dubbo-custom/dubbo-consumer</module>
+        <module>dubbo-custom/dubbo-provider</module>
+        <module>dubbo-custom/dubbo-interface</module>
         <module>demo-xml</module>
         <module>demo-springboot</module>
     </modules>

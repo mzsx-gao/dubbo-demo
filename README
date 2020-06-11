@@ -1,0 +1,8 @@
+demo-springboot:
+dubbo集成springboot示例
+
+demo-xml:
+dubbo用xml配置方式
+
+demo-custom:
+自己写的一个简单的模仿DUBBO的SOA框架
