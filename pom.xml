@@ -6,27 +6,28 @@
 
     <groupId>gao.soa</groupId>
     <artifactId>dubbo-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <modules>
         <module>dubbo-custom/dubbo-framework</module>
         <module>dubbo-custom/dubbo-consumer</module>
         <module>dubbo-custom/dubbo-provider</module>
-        <module>dubbo-custom/dubbo-interface</module>
-        <module>demo-xml</module>
+        <module>dubbo-interface</module>
         <module>demo-springboot</module>
+        <module>demo-xml/demo-xml-provider</module>
+        <module>demo-xml/demo-xml-consumer</module>
     </modules>
     <packaging>pom</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.101tec</groupId>
-            <artifactId>zkclient</artifactId>
-            <version>0.10</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.101tec</groupId>-->
+            <!--<artifactId>zkclient</artifactId>-->
+            <!--<version>0.11</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
-            <version>2.12.0</version>
+            <version>4.3.0</version>
         </dependency>
     </dependencies>
     <build>

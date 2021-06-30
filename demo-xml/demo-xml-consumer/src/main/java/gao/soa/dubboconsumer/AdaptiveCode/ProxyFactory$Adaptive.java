@@ -1,6 +1,8 @@
 package gao.soa.dubboconsumer.AdaptiveCode;
 
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.alibaba.dubbo.rpc.Invoker;
+import com.alibaba.dubbo.rpc.RpcException;
 
 public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
 
@@ -41,5 +43,10 @@ public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory
                 .getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
 
         return extension.getInvoker(arg0, arg1, arg2);
+    }
+
+    @Override
+    public <T> T getProxy(Invoker<T> invoker, boolean b) throws RpcException {
+        return null;
     }
 }

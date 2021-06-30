@@ -10,7 +10,7 @@
     <dubbo:application name="dubbo_consumer" />
 
     <!--<dubbo:registry address="multicast://224.5.6.7:1234" />-->
-    <dubbo:registry address="zookeeper://localhost:2181" client="zkclient"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <!-- 消费者的公共配置   是一个全局配置标签，-->
     <dubbo:consumer check="false"  client="netty4"/>
