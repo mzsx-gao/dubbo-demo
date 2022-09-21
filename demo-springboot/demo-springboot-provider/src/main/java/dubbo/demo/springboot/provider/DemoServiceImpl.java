@@ -28,6 +28,7 @@ import java.util.concurrent.CompletableFuture;
 
 @Service(timeout = 6000)
 public class DemoServiceImpl implements DemoService {
+
     private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
     @Override

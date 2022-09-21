@@ -18,14 +18,10 @@
  */
 package dubbo.demo.springboot.provider;
 
-import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@EnableDubbo(scanBasePackages = "dubbo.demo.springboot.provider")
-@PropertySource("classpath:dubbo-provider.properties")
 public class ProviderApplication {
 
     public static void main(String[] args){
